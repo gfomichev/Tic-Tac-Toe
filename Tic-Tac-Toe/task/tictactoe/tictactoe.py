@@ -20,11 +20,11 @@ class TicTacToe:
         return len([x for x in _list if x == value])
 
     def print_state(self):
-        print("-" * self.size ** 2)
+        print("-" * (self.size * 2 + 3))
         for i in self.field:
             row = f'| {str.join(" ", i)} |'
             print(row)
-        print("-" * self.size ** 2)
+        print("-" * (self.size * 2 + 3))
 
     def input_cells(self):
         inputted_cells = input("Enter cells: ")[:self.size ** 2]
@@ -77,7 +77,7 @@ class TicTacToe:
         column = int(coordinates[0]) - 1
         row = self.size - int(coordinates[1])
 
-        if not 0 <= row <= 2 or not 0 <= column <= 2:
+        if not 0 <= row <= self.size - 1 or not 0 <= column <= self.size - 1:
             print("Coordinates should be from 1 to 3!")
             return self.next_move()
 
